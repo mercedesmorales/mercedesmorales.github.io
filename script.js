@@ -68,21 +68,19 @@ function saveList() {
   localStorage.setItem("toDos", JSON.stringify(toDos));
 
 }
-
 function loadList() {
-  if (localStorage.getItem("toDos") != null) {
-    var toDos = JASON.parse(localStorage.getItem("toDos"));
-    for (var i =0; i < toDos.length; i++) {
-      var toDo = toDos[i];
-      newToDoItem(toDo.task, toDo.completed);
-alert(toDo.task);
+    if (localStorage.getItem("toDos") != null) {
+        var toDos = JSON.parse(localStorage.getItem("toDos"));
+        for (var i = 0; i < toDos.length; i++) {
+            var toDo = toDos[i];
+            newToDoItem(toDo.task, toDo.completed);
+        }
     }
-  }
-  else{
-    newToDoItem("My", false);
-    newToDoItem("to-do", true);
-    newToDoItem("list", false);
-  }
+    else{
+        newToDoItem("My", false);
+        newToDoItem("to-do", true);
+        newToDoItem("list", false);
+    }
 }
 
 loadList();
